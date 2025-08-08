@@ -1,0 +1,165 @@
+{
+  "quizTitle": "Bash vs. PowerShell: The Ultimate CLI Showdown",
+  "questions": [
+    {
+      "question": "What is the fundamental philosophical difference between the Bash and PowerShell pipelines?",
+      "options": [
+        "Bash uses text streams, while PowerShell uses structured objects.",
+        "Bash is for Linux, while PowerShell is only for Windows.",
+        "Bash commands are shorter, while PowerShell commands are more verbose.",
+        "Bash uses the '|' character, while PowerShell uses the '>' character for pipelines."
+      ],
+      "answer": "Bash uses text streams, while PowerShell uses structured objects."
+    },
+    {
+      "question": "According to the Unix philosophy, what is considered the 'universal interface' for programs to work together?",
+      "options": [
+        "JSON objects",
+        "XML data",
+        "Text streams",
+        ".NET objects"
+      ],
+      "answer": "Text streams"
+    },
+    {
+      "question": "In Bash, which command is the standard for powerful, recursive file searches with complex criteria?",
+      "options": [
+        "grep",
+        "search",
+        "ls -R",
+        "find"
+      ],
+      "answer": "find"
+    },
+    {
+      "question": "How does PowerShell typically filter files based on properties like size or modification date?",
+      "options": [
+        "Using complex flags within the Get-ChildItem command.",
+        "Piping the output of Get-ChildItem to Where-Object.",
+        "Using the Filter-Files cmdlet.",
+        "By manually parsing the text output."
+      ],
+      "answer": "Piping the output of Get-ChildItem to Where-Object."
+    },
+    {
+      "question": "In Windows, what is the correct two-step process an administrator must perform to modify the ACL of a system file they don't own?",
+      "options": [
+        "Use 'sudo' then 'icacls'",
+        "Use 'runas' then 'chmod'",
+        "Use 'takeown' then 'icacls'",
+        "Use 'Set-Owner' then 'Grant-Permission'"
+      ],
+      "answer": "Use 'takeown' then 'icacls'"
+    },
+    {
+      "question": "What is a primary limitation of a hard link in Linux?",
+      "options": [
+        "It cannot point to a file on the same filesystem.",
+        "It breaks if the original file is renamed.",
+        "It cannot be created for a directory.",
+        "It takes up twice the disk space."
+      ],
+      "answer": "It cannot be created for a directory."
+    },
+    {
+      "question": "What is the PowerShell equivalent of the 'grep' command for searching content within files?",
+      "options": [
+        "Find-String",
+        "Search-Content",
+        "Select-String",
+        "Test-Pattern"
+      ],
+      "answer": "Select-String"
+    },
+    {
+      "question": "How is the functionality of 'awk' (processing text by fields/columns) typically achieved in PowerShell?",
+      "options": [
+        "Using the 'ConvertFrom-Csv' cmdlet.",
+        "By accessing properties of the objects in the pipeline (e.g., $_.CPU).",
+        "Using the 'Select-Column' cmdlet.",
+        "With the built-in 'awk.exe' alias."
+      ],
+      "answer": "By accessing properties of the objects in the pipeline (e.g., $_.CPU)."
+    },
+    {
+      "question": "What is the canonical Bash one-liner to sort a file, count the unique lines, and show the most frequent lines first?",
+      "options": [
+        "uniq -c | sort -nr",
+        "sort | uniq -c | sort -nr",
+        "sort | count | sort -r",
+        "unique -sort | count"
+      ],
+      "answer": "sort | uniq -c | sort -nr"
+    },
+    {
+      "question": "Which PowerShell command provides the equivalent functionality to Bash's 'tail -f' for real-time log monitoring?",
+      "options": [
+        "Get-Content -Wait",
+        "Select-Object -Last 10 -Follow",
+        "Out-File -Append -Watch",
+        "Start-Monitoring -Path"
+      ],
+      "answer": "Get-Content -Wait"
+    },
+    {
+      "question": "Which single PowerShell pipeline correctly finds and forcefully terminates all running instances of Notepad?",
+      "options": [
+        "Find-Process 'notepad' | Kill-Process",
+        "ps 'notepad' | stop",
+        "Get-Process -Name 'notepad' | Stop-Process -Force",
+        "taskkill /IM notepad.exe /F"
+      ],
+      "answer": "Get-Process -Name 'notepad' | Stop-Process -Force"
+    },
+    {
+      "question": "What common parameter in PowerShell provides a 'dry run' capability, showing what a command would do without executing it?",
+      "options": [
+        "--dry-run",
+        "-Preview",
+        "-WhatIf",
+        "-Test"
+      ],
+      "answer": "-WhatIf"
+    },
+    {
+      "question": "In modern Linux systems, which command has largely replaced 'ifconfig' for viewing detailed IP information?",
+      "options": [
+        "netstat",
+        "ip addr",
+        "ipconfig",
+        "ss"
+      ],
+      "answer": "ip addr"
+    },
+    {
+      "question": "What is the modern, preferred utility for DNS queries in the Bash environment due to its detailed output?",
+      "options": [
+        "nslookup",
+        "host",
+        "ping",
+        "dig"
+      ],
+      "answer": "dig"
+    },
+    {
+      "question": "What is Microsoft's official, built-in package manager for Windows?",
+      "options": [
+        "apt-get",
+        "Chocolatey",
+        "winget",
+        "yum"
+      ],
+      "answer": "winget"
+    },
+    {
+      "question": "What is a key advantage of PowerShell's 'Push-Location' and 'Pop-Location' over Bash's 'pushd' and 'popd'?",
+      "options": [
+        "They are faster.",
+        "They work with any PowerShell provider, like the registry, not just the filesystem.",
+        "They can store an unlimited number of locations.",
+        "They automatically return to the original directory after a script finishes."
+      ],
+      "answer": "They work with any PowerShell provider, like the registry, not just the filesystem."
+    }
+  ]
+}
