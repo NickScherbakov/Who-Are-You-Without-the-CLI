@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Are You Without the CLI? An Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-arrow {
+            content: '→';
+            font-size: 2rem;
+            color: #FF6B6B;
+            margin: 0 1rem;
+            align-self: center;
+        }
+        .flow-item {
+            border: 2px solid #4ECDC4;
+            transition: all 0.3s ease-in-out;
+        }
+        .flow-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#4ECDC4] to-[#45B7D1]">The Modern CLI</h1>
+            <p class="text-xl md:text-2xl mt-4 text-gray-300">Who Are You in the Age of Advanced Tooling?</p>
+        </header>
+
+        <section id="intro" class="my-16">
+            <div class="max-w-4xl mx-auto text-center bg-gray-800 rounded-lg shadow-2xl p-8">
+                <p class="text-lg md:text-xl text-gray-200">The command line has evolved. Classic POSIX tools, once the gold standard, are now complemented by a new generation of powerful, user-centric utilities. This infographic explores the shift from arcane commands to intuitive, high-performance tools that define modern development efficiency.</p>
+            </div>
+        </section>
+
+        <section id="new-guard" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#FF6B6B]">The New Guard: Core Utility Replacements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-center text-[#4ECDC4]">Language of Modern Tools</h3>
+                    <p class="text-gray-300 mb-6 text-center">A significant trend is the "Rustification" of core utilities. Developers choose Rust for its memory safety and performance, creating tools that are both faster and more reliable than their C-based predecessors.</p>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="languageChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-center text-[#4ECDC4]">Classic vs. Modern: A Feature Leap</h3>
+                    <p class="text-gray-300 mb-6 text-center">Modern tools aren't just faster; they're smarter. They integrate seamlessly with developer workflows, offering features like Git-awareness and syntax highlighting out-of-the-box.</p>
+                     <div class="chart-container h-64 md:h-80">
+                        <canvas id="featureComparisonChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tui-workflows" class="my-20">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#FF6B6B]">The Interactive Terminal: Mastering TUIs</h2>
+            <p class="max-w-3xl mx-auto text-center text-lg text-gray-300 mb-12">Terminal User Interfaces (TUIs) offer a powerful middle ground between raw commands and full GUIs. They provide visual, keyboard-driven interfaces for managing complex systems like Git, Docker, and Kubernetes without leaving the terminal.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                    <div class="text-6xl mb-4">📦</div>
+                    <h3 class="text-2xl font-bold text-[#4ECDC4]">Docker: `lazydocker`</h3>
+                    <p class="text-gray-400 mt-2">Manage containers and services with single-keystroke commands for logs, shells, and restarts. A true "lazy" approach to efficiency.</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                    <div class="text-6xl mb-4">🌿</div>
+                    <h3 class="text-2xl font-bold text-[#4ECDC4]">Git: `lazygit`</h3>
+                    <p class="text-gray-400 mt-2">Stage individual lines, amend commits, and manage branches with a fast, keyboard-driven interface that simplifies complex Git operations.</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                     <div class="text-6xl mb-4">⛵</div>
+                    <h3 class="text-2xl font-bold text-[#4ECDC4]">Kubernetes: `k9s`</h3>
+                    <p class="text-gray-400 mt-2">Navigate complex clusters with a real-time dashboard. View pods, logs, and services without typing verbose `kubectl` commands.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="dev-arsenal" class="my-20">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#FF6B6B]">The Developer's Arsenal</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-[#4ECDC4]">From `cURL` to `httpie`: The "Human" Touch</h3>
+                    <p class="text-gray-300 mb-6">While `cURL` is powerful, `httpie` provides a "cURL for humans" experience. Its intuitive syntax, automatic JSON formatting, and colorized output streamline API interactions, reducing cognitive load.</p>
+                    <div class="chart-container h-80">
+                        <canvas id="apiToolRadarChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-[#4ECDC4]">Making JSON Grep-able</h3>
+                    <p class="text-gray-300 mb-6">Traditional line-oriented tools struggle with nested JSON. `gron` solves this by flattening JSON into a greppable format, bridging the gap between structured data and classic Unix philosophy.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm">
+                        <p class="text-pink-400">{"user": {"name": "Alice"}}</p>
+                        <p class="text-gray-500 my-2 text-center text-2xl">↓</p>
+                        <p><span class="text-cyan-400">json.user.name</span> = <span class="text-pink-400">"Alice"</span>;</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy" class="my-20">
+             <h2 class="text-3xl font-bold text-center mb-12 text-[#FF6B6B]">The Philosophy of Choice</h2>
+             <p class="max-w-3xl mx-auto text-center text-lg text-gray-300 mb-12">Your command-line identity is defined by the tools you choose. This reflects a personal philosophy balancing performance, features, and ease of use.</p>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                    <h3 class="text-xl font-bold text-[#4ECDC4] mb-2">The Minimalist</h3>
+                    <p class="text-gray-400">Values raw speed and efficiency. Prefers lightweight, C-based tools like `nnn` for file management.</p>
+                </div>
+                 <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                    <h3 class="text-xl font-bold text-[#4ECDC4] mb-2">The Ergonomist</h3>
+                    <p class="text-gray-400">Prioritizes user experience. Uses Rust-based tools like `bat` and `eza` for their smart defaults.</p>
+                </div>
+                 <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                    <h3 class="text-xl font-bold text-[#4ECDC4] mb-2">The Power User</h3>
+                    <p class="text-gray-400">Manages complexity with Go-based TUIs like `lazygit` and `k9s` to stay in the flow.</p>
+                </div>
+                 <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                    <h3 class="text-xl font-bold text-[#4ECDC4] mb-2">The Artisan</h3>
+                    <p class="text-gray-400">Crafts a bespoke environment with `oh-my-zsh` and `pywal`, making the terminal a personalized workspace.</p>
+                </div>
+             </div>
+        </section>
+
+        <footer class="text-center mt-20 py-8 border-t border-gray-700">
+            <p class="text-gray-500">Infographic based on the "Who Are You Without the CLI?" research by Nick Scherbakov.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const energeticPalette = {
+            primary: '#FF6B6B',   // Red-Pink
+            secondary: '#4ECDC4', // Teal
+            accent: '#45B7D1',    // Blue
+            neutralLight: '#F7FFF7', // Off-white
+            neutralDark: '#1A535C',   // Dark Cyan
+            text: '#FFFFFF'
+        };
+
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines.filter(line => line.length > 0);
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: energeticPalette.text
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: { color: energeticPalette.text },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                },
+                x: {
+                    ticks: { color: energeticPalette.text },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                }
+            }
+        };
+
+        new Chart(document.getElementById('languageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Rust', 'Go', 'Python', 'C', 'Node.js'],
+                datasets: [{
+                    label: 'Language Distribution',
+                    data: [45, 25, 15, 10, 5],
+                    backgroundColor: [energeticPalette.primary, energeticPalette.secondary, energeticPalette.accent, '#FFC145', '#C47AFF'],
+                    borderColor: '#1f2937',
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: energeticPalette.text,
+                            padding: 20,
+                            font: { size: 14 }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('featureComparisonChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Performance', 'Git Integration', 'User Experience (UX)', 'Smart Defaults'],
+                datasets: [{
+                    label: 'Classic Tools',
+                    data: [6, 2, 3, 1],
+                    backgroundColor: 'rgba(255, 107, 107, 0.7)',
+                    borderColor: energeticPalette.primary,
+                    borderWidth: 2
+                }, {
+                    label: 'Modern Tools',
+                    data: [9, 8, 9, 8],
+                    backgroundColor: 'rgba(78, 205, 196, 0.7)',
+                    borderColor: energeticPalette.secondary,
+                    borderWidth: 2
+                }]
+            },
+            options: defaultChartOptions
+        });
+
+        new Chart(document.getElementById('apiToolRadarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Ease of Use', 'JSON Handling', 'Colorized Output', 'Scriptability', 'Feature Set'],
+                datasets: [{
+                    label: 'cURL',
+                    data: [4, 2, 1, 10, 9],
+                    backgroundColor: 'rgba(255, 107, 107, 0.4)',
+                    borderColor: energeticPalette.primary,
+                    pointBackgroundColor: energeticPalette.primary,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: energeticPalette.primary
+                }, {
+                    label: 'httpie',
+                    data: [9, 9, 9, 7, 8],
+                    backgroundColor: 'rgba(78, 205, 196, 0.4)',
+                    borderColor: energeticPalette.secondary,
+                    pointBackgroundColor: energeticPalette.secondary,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: energeticPalette.secondary
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: energeticPalette.text
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(255, 255, 255, 0.2)' },
+                        grid: { color: 'rgba(255, 255, 255, 0.2)' },
+                        pointLabels: {
+                            color: energeticPalette.text,
+                            font: {
+                                size: 12
+                            }
+                        },
+                        ticks: {
+                            color: energeticPalette.text,
+                            backdropColor: 'rgba(0,0,0,0.5)',
+                            backdropPadding: 4
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
