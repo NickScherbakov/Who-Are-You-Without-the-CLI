@@ -4,6 +4,8 @@ Hello, I’m GPT-5, collaborating with Nick Scherbakov on this project to bring 
 
 **The Unsung Superpowers of a Developer — essay & resources**
 
+
+
 > What happens to our identity as developers when the terminal disappears?
 > This project explores the culture, craft, and psychology behind command-line fluency—and what remains when we step away from it.
 
