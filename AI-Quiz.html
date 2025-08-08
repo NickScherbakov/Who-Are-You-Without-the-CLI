@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Are You Without the CLI? An Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-item {
+            border: 2px solid #4ECDC4;
+            transition: all 0.3s ease-in-out;
+        }
+        .flow-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .quiz-option:hover {
+            background-color: #1A535C;
+        }
+        .quiz-option.selected {
+            background-color: #4ECDC4;
+            color: #111827;
+            border-color: #F7FFF7;
+        }
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+            transition: transform 0.25s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#4ECDC4] to-[#45B7D1]">The Modern CLI</h1>
+            <p class="text-xl md:text-2xl mt-4 text-gray-300">Who Are You in the Age of Advanced Tooling?</p>
+        </header>
+
+        <section id="intro" class="my-16">
+            <div class="max-w-4xl mx-auto text-center bg-gray-800 rounded-lg shadow-2xl p-8">
+                <p class="text-lg md:text-xl text-gray-200">The command line has evolved. Classic POSIX tools, once the gold standard, are now complemented by a new generation of powerful, user-centric utilities. This infographic explores the shift from arcane commands to intuitive, high-performance tools that define modern development efficiency.</p>
+            </div>
+        </section>
+
+        <section id="new-guard" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#FF6B6B]">The New Guard: Core Utility Replacements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-center text-[#4ECDC4]">Language of Modern Tools</h3>
+                    <p class="text-gray-300 mb-6 text-center">A significant trend is the "Rustification" of core utilities. Developers choose Rust for its memory safety and performance, creating tools that are both faster and more reliable than their C-based predecessors.</p>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="languageChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-center text-[#4ECDC4]">Classic vs. Modern: A Feature Leap</h3>
+                    <p class="text-gray-300 mb-6 text-center">Modern tools aren't just faster; they're smarter. They integrate seamlessly with developer workflows, offering features like Git-awareness and syntax highlighting out-of-the-box.</p>
+                     <div class="chart-container h-64 md:h-80">
+                        <canvas id="featureComparisonChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tui-workflows" class="my-20">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#FF6B6B]">The Interactive Terminal: Mastering TUIs</h2>
+            <p class="max-w-3xl mx-auto text-center text-lg text-gray-300 mb-12">Terminal User Interfaces (TUIs) offer a powerful middle ground between raw commands and full GUIs. They provide visual, keyboard-driven interfaces for managing complex systems like Git, Docker, and Kubernetes without leaving the terminal.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                    <div class="text-6xl mb-4">📦</div>
+                    <h3 class="text-2xl font-bold text-[#4ECDC4]">Docker: `lazydocker`</h3>
+                    <p class="text-gray-400 mt-2">Manage containers and services with single-keystroke commands for logs, shells, and restarts. A true "lazy" approach to efficiency.</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                    <div class="text-6xl mb-4">🌿</div>
+                    <h3 class="text-2xl font-bold text-[#4ECDC4]">Git: `lazygit`</h3>
+                    <p class="text-gray-400 mt-2">Stage individual lines, amend commits, and manage branches with a fast, keyboard-driven interface that simplifies complex Git operations.</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                     <div class="text-6xl mb-4">⛵</div>
+                    <h3 class="text-2xl font-bold text-[#4ECDC4]">Kubernetes: `k9s`</h3>
+                    <p class="text-gray-400 mt-2">Navigate complex clusters with a real-time dashboard. View pods, logs, and services without typing verbose `kubectl` commands.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="dev-arsenal" class="my-20">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#FF6B6B]">The Developer's Arsenal</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-[#4ECDC4]">From `cURL` to `httpie`: The "Human" Touch</h3>
+                    <p class="text-gray-300 mb-6">While `cURL` is powerful, `httpie` provides a "cURL for humans" experience. Its intuitive syntax, automatic JSON formatting, and colorized output streamline API interactions, reducing cognitive load.</p>
+                    <div class="chart-container h-80">
+                        <canvas id="apiToolRadarChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-[#4ECDC4]">Making JSON Grep-able</h3>
+                    <p class="text-gray-300 mb-6">Traditional line-oriented tools struggle with nested JSON. `gron` solves this by flattening JSON into a greppable format, bridging the gap between structured data and classic Unix philosophy.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm">
+                        <p class="text-pink-400">{"user": {"name": "Alice"}}</p>
+                        <p class="text-gray-500 my-2 text-center text-2xl">↓</p>
+                        <p><span class="text-cyan-400">json.user.name</span> = <span class="text-pink-400">"Alice"</span>;</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy" class="my-20">
+             <h2 class="text-3xl font-bold text-center mb-12 text-[#FF6B6B]">The Philosophy of Choice</h2>
+             <p class="max-w-3xl mx-auto text-center text-lg text-gray-300 mb-12">Your command-line identity is defined by the tools you choose. This reflects a personal philosophy balancing performance, features, and ease of use.</p>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                    <h3 class="text-xl font-bold text-[#4ECDC4] mb-2">The Minimalist</h3>
+                    <p class="text-gray-400">Values raw speed and efficiency. Prefers lightweight, C-based tools like `nnn` for file management.</p>
+                </div>
+                 <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                    <h3 class="text-xl font-bold text-[#4ECDC4] mb-2">The Ergonomist</h3>
+                    <p class="text-gray-400">Prioritizes user experience. Uses Rust-based tools like `bat` and `eza` for their smart defaults.</p>
+                </div>
+                 <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                    <h3 class="text-xl font-bold text-[#4ECDC4] mb-2">The Power User</h3>
+                    <p class="text-gray-400">Manages complexity with Go-based TUIs like `lazygit` and `k9s` to stay in the flow.</p>
+                </div>
+                 <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center flow-item">
+                    <h3 class="text-xl font-bold text-[#4ECDC4] mb-2">The Artisan</h3>
+                    <p class="text-gray-400">Crafts a bespoke environment with `oh-my-zsh` and `pywal`, making the terminal a personalized workspace.</p>
+                </div>
+             </div>
+        </section>
+
+        <section id="quiz" class="my-20">
+            <h2 class="text-3xl font-bold text-center mb-4 text-[#FF6B6B]">Test Your CLI Knowledge ✨</h2>
+            <p class="max-w-3xl mx-auto text-center text-lg text-gray-300 mb-12">Think you know the modern CLI? Take this short quiz and get AI-powered feedback on your answers.</p>
+            <div id="quiz-container" class="max-w-2xl mx-auto bg-gray-800 rounded-lg shadow-2xl p-8">
+                <div id="quiz-start-screen">
+                    <button id="start-quiz-btn" class="w-full bg-gradient-to-r from-[#4ECDC4] to-[#45B7D1] hover:opacity-90 text-white font-bold py-3 px-4 rounded-lg text-xl transition-opacity">Start Quiz</button>
+                </div>
+                <div id="quiz-game-screen" class="hidden">
+                    <div class="flex justify-between items-center mb-4">
+                         <h3 id="question-number" class="text-lg font-semibold text-gray-400"></h3>
+                         <div id="score" class="text-lg font-bold text-[#4ECDC4]">Score: 0</div>
+                    </div>
+                    <p id="question" class="text-xl font-semibold mb-6"></p>
+                    <div id="answers" class="space-y-3"></div>
+                    <button id="submit-answer-btn" class="w-full mt-8 bg-[#FF6B6B] hover:bg-opacity-90 text-white font-bold py-3 px-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-opacity flex items-center justify-center">
+                        <span id="submit-text">Submit Answer</span>
+                        <div id="submit-loader" class="w-6 h-6 border-4 border-t-transparent border-white rounded-full animate-spin hidden"></div>
+                    </button>
+                </div>
+                 <div id="quiz-end-screen" class="hidden text-center">
+                    <h3 class="text-2xl font-bold text-[#4ECDC4] mb-4">Quiz Complete!</h3>
+                    <p id="final-score" class="text-xl mb-6"></p>
+                    <button id="restart-quiz-btn" class="w-full bg-gradient-to-r from-[#4ECDC4] to-[#45B7D1] hover:opacity-90 text-white font-bold py-3 px-4 rounded-lg text-xl transition-opacity">Play Again</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-20 py-8 border-t border-gray-700">
+            <p class="text-gray-500">Infographic based on the "Who Are You Without the CLI?" research by Nick Scherbakov.</p>
+        </footer>
+
+    </div>
+    
+    <div id="feedback-modal" class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 pointer-events-none z-50">
+        <div class="modal-content bg-gray-800 rounded-lg shadow-2xl p-8 max-w-lg w-full transform scale-95">
+            <h3 id="modal-title" class="text-2xl font-bold mb-4"></h3>
+            <p id="modal-feedback" class="text-gray-300 mb-6"></p>
+            <button id="next-question-btn" class="w-full bg-[#4ECDC4] hover:opacity-90 text-gray-900 font-bold py-2 px-4 rounded-lg">Continue</button>
+        </div>
+    </div>
+
+
+    <script>
+        const energeticPalette = {
+            primary: '#FF6B6B',
+            secondary: '#4ECDC4',
+            accent: '#45B7D1',
+            text: '#FFFFFF'
+        };
+
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { labels: { color: energeticPalette.text } },
+                tooltip: { callbacks: { title: (items) => Array.isArray(items[0].label) ? items[0].label.join(' ') : items[0].label } }
+            },
+            scales: {
+                y: { ticks: { color: energeticPalette.text }, grid: { color: 'rgba(255, 255, 255, 0.1)' } },
+                x: { ticks: { color: energeticPalette.text }, grid: { color: 'rgba(255, 255, 255, 0.1)' } }
+            }
+        };
+
+        new Chart(document.getElementById('languageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Rust', 'Go', 'Python', 'C', 'Node.js'],
+                datasets: [{
+                    data: [45, 25, 15, 10, 5],
+                    backgroundColor: [energeticPalette.primary, energeticPalette.secondary, energeticPalette.accent, '#FFC145', '#C47AFF'],
+                    borderColor: '#1f2937',
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: energeticPalette.text, padding: 20, font: { size: 14 } } },
+                    tooltip: { callbacks: { title: (items) => items[0].label } }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('featureComparisonChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Performance', 'Git Integration', 'User Experience (UX)', 'Smart Defaults'],
+                datasets: [
+                    { label: 'Classic Tools', data: [6, 2, 3, 1], backgroundColor: 'rgba(255, 107, 107, 0.7)', borderColor: energeticPalette.primary, borderWidth: 2 },
+                    { label: 'Modern Tools', data: [9, 8, 9, 8], backgroundColor: 'rgba(78, 205, 196, 0.7)', borderColor: energeticPalette.secondary, borderWidth: 2 }
+                ]
+            },
+            options: defaultChartOptions
+        });
+
+        new Chart(document.getElementById('apiToolRadarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Ease of Use', 'JSON Handling', 'Colorized Output', 'Scriptability', 'Feature Set'],
+                datasets: [
+                    { label: 'cURL', data: [4, 2, 1, 10, 9], backgroundColor: 'rgba(255, 107, 107, 0.4)', borderColor: energeticPalette.primary, pointBackgroundColor: energeticPalette.primary, pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: energeticPalette.primary },
+                    { label: 'httpie', data: [9, 9, 9, 7, 8], backgroundColor: 'rgba(78, 205, 196, 0.4)', borderColor: energeticPalette.secondary, pointBackgroundColor: energeticPalette.secondary, pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: energeticPalette.secondary }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: energeticPalette.text } }, tooltip: { callbacks: { title: (items) => items[0].label } } },
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(255, 255, 255, 0.2)' },
+                        grid: { color: 'rgba(255, 255, 255, 0.2)' },
+                        pointLabels: { color: energeticPalette.text, font: { size: 12 } },
+                        ticks: { color: energeticPalette.text, backdropColor: 'rgba(0,0,0,0.5)', backdropPadding: 4 }
+                    }
+                }
+            }
+        });
+
+        const quizData = [
+            { question: "Which language is most associated with the 'Rustification' of modern CLI tools for its performance and safety?", answers: ["Go", "Python", "Rust", "C++"], correctAnswer: 2 },
+            { question: "Which TUI tool is designed for managing Docker containers and services efficiently?", answers: ["lazygit", "k9s", "lazydocker", "docker-compose"], correctAnswer: 2 },
+            { question: "What is the primary advantage of `httpie` over `cURL` for developers?", answers: ["Better scriptability", "Human-friendly syntax and output", "More authentication methods", "Smaller binary size"], correctAnswer: 1 },
+            { question: "The tool `gron` is used to solve what common problem with CLI tools?", answers: ["Searching inside compressed files", "Making nested JSON easily greppable", "Colorizing command output", "Managing shell history"], correctAnswer: 1 },
+            { question: "A developer who prioritizes smart defaults and a great out-of-the-box experience fits which CLI philosophy?", answers: ["The Minimalist", "The Power User", "The Artisan", "The Ergonomist"], correctAnswer: 3 }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+        const startScreen = document.getElementById('quiz-start-screen');
+        const gameScreen = document.getElementById('quiz-game-screen');
+        const endScreen = document.getElementById('quiz-end-screen');
+        
+        const startBtn = document.getElementById('start-quiz-btn');
+        const restartBtn = document.getElementById('restart-quiz-btn');
+        const questionEl = document.getElementById('question');
+        const questionNumberEl = document.getElementById('question-number');
+        const answersEl = document.getElementById('answers');
+        const submitBtn = document.getElementById('submit-answer-btn');
+        const submitText = document.getElementById('submit-text');
+        const submitLoader = document.getElementById('submit-loader');
+        const scoreEl = document.getElementById('score');
+        const finalScoreEl = document.getElementById('final-score');
+
+        const modal = document.getElementById('feedback-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalFeedback = document.getElementById('modal-feedback');
+        const nextQuestionBtn = document.getElementById('next-question-btn');
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedAnswerIndex = -1;
+
+        startBtn.addEventListener('click', startQuiz);
+        restartBtn.addEventListener('click', startQuiz);
+        submitBtn.addEventListener('click', handleSubmit);
+        nextQuestionBtn.addEventListener('click', nextQuestion);
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            updateScore();
+            startScreen.classList.add('hidden');
+            endScreen.classList.add('hidden');
+            gameScreen.classList.remove('hidden');
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            selectedAnswerIndex = -1;
+            const currentQuestion = quizData[currentQuestionIndex];
+            questionEl.textContent = currentQuestion.question;
+            questionNumberEl.textContent = `Question ${currentQuestionIndex + 1} / ${quizData.length}`;
+            answersEl.innerHTML = '';
+            currentQuestion.answers.forEach((answer, index) => {
+                const answerDiv = document.createElement('div');
+                answerDiv.textContent = answer;
+                answerDiv.classList.add('quiz-option', 'p-4', 'bg-gray-700', 'rounded-lg', 'border-2', 'border-transparent');
+                answerDiv.dataset.index = index;
+                answerDiv.addEventListener('click', () => selectAnswer(index, answerDiv));
+                answersEl.appendChild(answerDiv);
+            });
+            submitBtn.disabled = true;
+        }
+
+        function selectAnswer(index, element) {
+            selectedAnswerIndex = index;
+            document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            submitBtn.disabled = false;
+        }
+
+        async function handleSubmit() {
+            setLoading(true);
+            const currentQuestion = quizData[currentQuestionIndex];
+            const isCorrect = selectedAnswerIndex === currentQuestion.correctAnswer;
+            
+            if (isCorrect) {
+                score++;
+                updateScore();
+            }
+
+            const userAnswer = currentQuestion.answers[selectedAnswerIndex];
+            const correctAnswerText = currentQuestion.answers[currentQuestion.correctAnswer];
+            
+            try {
+                const feedback = await getAIFeedback(currentQuestion.question, userAnswer, correctAnswerText, isCorrect);
+                showFeedbackModal(isCorrect, feedback);
+            } catch (error) {
+                console.error("Failed to get AI feedback:", error);
+                const fallbackFeedback = isCorrect ? "You got it right!" : `Good try! The correct answer was ${correctAnswerText}.`;
+                showFeedbackModal(isCorrect, fallbackFeedback);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        async function getAIFeedback(question, userAnswer, correctAnswer, isCorrect) {
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+            
+            const prompt = `You are a fun, encouraging tutor for a tech infographic quiz.
+            The user was asked the following question: "${question}"
+            They answered: "${userAnswer}".
+            The correct answer is: "${correctAnswer}".
+            
+            Please provide a brief, engaging explanation.
+            - If the user was correct, congratulate them and briefly explain why their answer is the right one.
+            - If the user was incorrect, be encouraging. Gently explain why their choice isn't the best fit and why the correct answer is right.
+            Keep the tone light and positive. Use about 2-3 sentences.`;
+
+            const payload = { contents: [{ parts: [{ text: prompt }] }] };
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error(`API request failed with status ${response.status}`);
+            }
+
+            const result = await response.json();
+            return result.candidates[0].content.parts[0].text;
+        }
+
+        function showFeedbackModal(isCorrect, feedback) {
+            modalTitle.textContent = isCorrect ? "Correct! 🎉" : "Not Quite... 🤔";
+            modalTitle.style.color = isCorrect ? energeticPalette.secondary : energeticPalette.primary;
+            modalFeedback.textContent = feedback;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('.modal-content').classList.remove('scale-95');
+        }
+
+        function nextQuestion() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('.modal-content').classList.add('scale-95');
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                displayQuestion();
+            } else {
+                showEndScreen();
+            }
+        }
+
+        function showEndScreen() {
+            gameScreen.classList.add('hidden');
+            endScreen.classList.remove('hidden');
+            finalScoreEl.textContent = `Your final score is ${score} out of ${quizData.length}!`;
+        }
+        
+        function updateScore() {
+            scoreEl.textContent = `Score: ${score}`;
+        }
+
+        function setLoading(isLoading) {
+            submitBtn.disabled = isLoading;
+            if (isLoading) {
+                submitText.classList.add('hidden');
+                submitLoader.classList.remove('hidden');
+            } else {
+                submitText.classList.remove('hidden');
+                submitLoader.classList.add('hidden');
+            }
+        }
+
+    </script>
+</body>
+</html>
