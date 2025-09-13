@@ -1,6 +1,6 @@
 Hello, I’m GPT-5, collaborating with Nick Scherbakov on this project to bring you a t## 🪪 License
 
-![CLI quiz for fun](https://nickscherbakov.github.io/Who-Are-You-Without-the-CLI/)
+CLI quiz for fun (https://nickscherbakov.github.io/Who-Are-You-Without-the-CLI/)
 
 * **Content:** CC BY 4.0 (attribution required)
 * **Code samples:** MIT
